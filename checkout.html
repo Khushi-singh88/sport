@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Checkout | SportGear</title>
+  <meta name="description" content="Complete your sports equipment purchase with secure shipping and simulated payment methods." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="header-topbar">
+    <div class="container topbar-content">
+      <div class="topbar-announcement">
+        <i class="fa-solid fa-lock text-accent"></i>
+        <span>SECURE 256-BIT SSL ENCRYPTED CHECKOUT</span>
+      </div>
+      <div class="topbar-links">
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Support</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main">
+        <div class="header-main-content">
+          <button class="mobile-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <a href="index.html" class="brand-logo">
+            <i class="fa-solid fa-trophy"></i>
+            <span>SPORT<span>GEAR</span></span>
+          </a>
+
+          <div class="header-actions" style="margin-left: auto;">
+            <a href="cart.html" class="btn btn-sm btn-outline" style="color: #ffffff; border-color: rgba(255,255,255,0.4);">
+              <i class="fa-solid fa-arrow-left"></i> Return to Cart
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <i class="fa-solid fa-trophy"></i>
+        <span>SPORT<span>GEAR</span></span>
+      </div>
+      <button class="mobile-drawer-close" id="mobile-nav-close" aria-label="Close Menu"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html"><i class="fa-solid fa-house text-primary"></i> Home</a></li>
+        <li><a href="products.html"><i class="fa-solid fa-list-check text-primary"></i> All Products</a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping text-accent"></i> Cart</a></li>
+        <li><a href="account.html"><i class="fa-solid fa-user text-primary"></i> Account</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <div class="breadcrumb-list">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="cart.html">Cart</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span class="current">Checkout</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- Active Checkout Area or Confirmation View -->
+    <div id="checkout-main-view">
+      <div style="margin-bottom: 2rem;">
+        <h1 style="font-size: 2.2rem; margin-bottom: 0.25rem;">Finalize Your Order</h1>
+        <p>Enter your shipping destination and simulated payment preference</p>
+      </div>
+
+      <div class="checkout-layout">
+        <!-- Form Steps (Left) -->
+        <div class="checkout-steps-wrap">
+          
+          <!-- Step 1: Shipping Address (PRD 6.5) -->
+          <div class="checkout-step-card">
+            <div class="step-card-header">
+              <span class="step-number">1</span>
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.1rem;">Shipping Information</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 0;">Where should we deliver your sports gear?</p>
+              </div>
+            </div>
+
+            <!-- Saved Address Quick Picker if logged in -->
+            <div id="saved-address-selector-box" style="margin-bottom: 1.5rem; display: none;">
+              <label style="font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; display: block;">Use a saved address:</label>
+              <select id="saved-address-dropdown" class="form-control" onchange="fillSavedAddress(this.value)">
+                <option value="">-- Choose from your saved addresses --</option>
+              </select>
+            </div>
+
+            <form id="shipping-form">
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="ship-name">Full Name *</label>
+                  <input type="text" id="ship-name" class="form-control" placeholder="Alex Johnson" required />
+                </div>
+                <div class="form-group">
+                  <label for="ship-phone">Contact Phone *</label>
+                  <input type="tel" id="ship-phone" class="form-control" placeholder="+1 (555) 234-5678" required />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="ship-email">Email Address (for order tracking & updates) *</label>
+                <input type="email" id="ship-email" class="form-control" placeholder="alex@sportgear.com" required />
+              </div>
+
+              <div class="form-group">
+                <label for="ship-street">Street Address *</label>
+                <input type="text" id="ship-street" class="form-control" placeholder="742 Evergreen Terrace, Apt 4B" required />
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="ship-city">City *</label>
+                  <input type="text" id="ship-city" class="form-control" placeholder="Springfield" required />
+                </div>
+                <div class="form-group">
+                  <label for="ship-state">State / Province *</label>
+                  <input type="text" id="ship-state" class="form-control" placeholder="Oregon" required />
+                </div>
+              </div>
+
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="ship-zip">PIN / Postal Code *</label>
+                  <input type="text" id="ship-zip" class="form-control" placeholder="97477" required />
+                </div>
+                <div class="form-group">
+                  <label for="ship-country">Country</label>
+                  <select id="ship-country" class="form-control">
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="UK">United Kingdom</option>
+                    <option value="IN">India</option>
+                    <option value="AU">Australia</option>
+                  </select>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Step 2: Payment Method (PRD 6.5 & Bonus B7) -->
+          <div class="checkout-step-card">
+            <div class="step-card-header">
+              <span class="step-number">2</span>
+              <div>
+                <h3 style="font-size: 1.25rem; margin-bottom: 0.1rem;">Payment Method</h3>
+                <p style="font-size: 0.85rem; margin-bottom: 0;">Simulated payment transaction (No real money deducted)</p>
+              </div>
+            </div>
+
+            <div class="payment-methods-grid">
+              <div class="payment-option-card selected" onclick="selectPaymentMethod('card', this)">
+                <i class="fa-solid fa-credit-card"></i>
+                <div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.1rem;">Credit / Debit Card</h4>
+                  <span style="font-size: 0.75rem; color: var(--color-text-muted);">Visa, MasterCard, Amex</span>
+                </div>
+              </div>
+
+              <div class="payment-option-card" onclick="selectPaymentMethod('upi', this)">
+                <i class="fa-solid fa-mobile-screen-button"></i>
+                <div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.1rem;">UPI Instant Pay</h4>
+                  <span style="font-size: 0.75rem; color: var(--color-text-muted);">GPay, PhonePe, Paytm</span>
+                </div>
+              </div>
+
+              <div class="payment-option-card" onclick="selectPaymentMethod('netbanking', this)">
+                <i class="fa-solid fa-building-columns"></i>
+                <div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.1rem;">Net Banking</h4>
+                  <span style="font-size: 0.75rem; color: var(--color-text-muted);">Major Verified Banks</span>
+                </div>
+              </div>
+
+              <div class="payment-option-card" onclick="selectPaymentMethod('cod', this)">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+                <div>
+                  <h4 style="font-size: 0.95rem; margin-bottom: 0.1rem;">Cash on Delivery</h4>
+                  <span style="font-size: 0.75rem; color: var(--color-text-muted);">Pay cash upon arrival</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Payment Fields -->
+            <div id="payment-fields-card">
+              <div class="form-group">
+                <label for="pay-card-num">Card Number</label>
+                <input type="text" id="pay-card-num" class="form-control" placeholder="4242 •••• •••• 4242" value="4242 8888 9999 4242" />
+              </div>
+              <div class="form-grid-2">
+                <div class="form-group">
+                  <label for="pay-card-exp">Expiry (MM/YY)</label>
+                  <input type="text" id="pay-card-exp" class="form-control" placeholder="12/28" value="12/28" />
+                </div>
+                <div class="form-group">
+                  <label for="pay-card-cvv">CVV / CVC</label>
+                  <input type="password" id="pay-card-cvv" class="form-control" placeholder="123" maxlength="4" value="888" />
+                </div>
+              </div>
+            </div>
+
+            <div id="payment-fields-upi" style="display: none;">
+              <div class="form-group">
+                <label for="pay-upi-id">Virtual Payment Address (VPA / UPI ID)</label>
+                <input type="text" id="pay-upi-id" class="form-control" placeholder="athlete@okhdfcbank" />
+              </div>
+            </div>
+
+            <div id="payment-fields-netbanking" style="display: none;">
+              <div class="form-group">
+                <label for="pay-bank-select">Select Your Bank</label>
+                <select id="pay-bank-select" class="form-control">
+                  <option value="chase">JPMorgan Chase</option>
+                  <option value="bofa">Bank of America</option>
+                  <option value="wells">Wells Fargo</option>
+                  <option value="citi">Citibank</option>
+                  <option value="hdfc">HDFC Bank</option>
+                  <option value="icici">ICICI Bank</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="payment-fields-cod" style="display: none;">
+              <div style="background-color: #f8fafc; border: 1px dashed var(--color-border); padding: 1.25rem; border-radius: var(--radius-sm);">
+                <p style="margin-bottom: 0; font-size: 0.9rem;">
+                  <i class="fa-solid fa-circle-info text-primary"></i> You will pay cash to the courier upon delivery of your sports gear parcel.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary (Right) -->
+        <aside class="order-summary-card">
+          <h3 class="summary-title">Order Items (<span id="checkout-item-count">0</span>)</h3>
+
+          <div id="checkout-items-list" style="max-height: 280px; overflow-y: auto; margin-bottom: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem;">
+            <!-- Mini item rows populated by JS -->
+          </div>
+
+          <div class="summary-rows">
+            <div class="summary-row">
+              <span>Subtotal</span>
+              <span id="co-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row discount-row" id="co-discount-row" style="display: none;">
+              <span>Coupon Discount</span>
+              <span id="co-discount">-$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Shipping</span>
+              <span id="co-shipping">$0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Tax (5%)</span>
+              <span id="co-tax">$0.00</span>
+            </div>
+          </div>
+
+          <div class="summary-total-row">
+            <span>Total to Pay</span>
+            <span id="co-total">$0.00</span>
+          </div>
+
+          <button type="button" class="btn btn-accent btn-lg btn-block" id="place-order-btn" onclick="handlePlaceOrder()">
+            <span id="place-btn-text"><i class="fa-solid fa-check"></i> Place Order</span>
+          </button>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Order Confirmation Screen (PRD 6.5 & Bonus B6) -->
+    <div id="confirmation-view" style="display: none; max-width: 780px; margin: 3rem auto 5rem;">
+      <div style="background-color: #ffffff; border-radius: var(--radius-md); border: 1px solid var(--color-border); padding: 3rem; text-align: center; box-shadow: var(--shadow-lg);">
+        <div style="width: 80px; height: 80px; border-radius: 50%; background-color: var(--color-primary-tint); color: var(--color-primary); font-size: 2.5rem; display: inline-flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+          <i class="fa-solid fa-check"></i>
+        </div>
+        <h1 style="font-size: 2.4rem; margin-bottom: 0.5rem;">Order Confirmed!</h1>
+        <p style="font-size: 1.1rem; color: var(--color-text-muted); margin-bottom: 1.5rem;">
+          Thank you for choosing SportGear! Your order has been placed and is being packed.
+        </p>
+
+        <div style="background-color: #f8fafc; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.25rem; margin-bottom: 2rem; display: inline-block;">
+          <span style="font-size: 0.85rem; color: var(--color-text-muted); text-transform: uppercase; font-weight: 600;">Your Order ID:</span>
+          <h3 id="confirmed-order-id" style="color: var(--color-primary); font-size: 1.8rem; margin: 0.2rem 0;">SG-00000</h3>
+          <span style="font-size: 0.8rem; color: var(--color-text-light);">A confirmation email was dispatched.</span>
+        </div>
+
+        <!-- Tracking Timeline (Bonus B6) -->
+        <div style="text-align: left; margin-bottom: 2.5rem;">
+          <h4 style="margin-bottom: 1rem;"><i class="fa-solid fa-route text-primary"></i> Live Order Tracking Timeline</h4>
+          <div class="order-timeline">
+            <div class="timeline-step completed">
+              <div class="step-icon-circle"><i class="fa-solid fa-check"></i></div>
+              <span class="step-label">Placed</span>
+              <span class="step-date">Today</span>
+            </div>
+            <div class="timeline-step current">
+              <div class="step-icon-circle"><i class="fa-solid fa-box-open"></i></div>
+              <span class="step-label">Packed</span>
+              <span class="step-date">In Progress</span>
+            </div>
+            <div class="timeline-step">
+              <div class="step-icon-circle"><i class="fa-solid fa-truck"></i></div>
+              <span class="step-label">Shipped</span>
+              <span class="step-date">Pending</span>
+            </div>
+            <div class="timeline-step">
+              <div class="step-icon-circle"><i class="fa-solid fa-house-chimney"></i></div>
+              <span class="step-label">Out for delivery</span>
+              <span class="step-date">Pending</span>
+            </div>
+            <div class="timeline-step">
+              <div class="step-icon-circle"><i class="fa-solid fa-handshake"></i></div>
+              <span class="step-label">Delivered</span>
+              <span class="step-date">Pending</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+          <a href="account.html?tab=orders" class="btn btn-primary">
+            <i class="fa-solid fa-receipt"></i> View in Order History
+          </a>
+          <a href="products.html" class="btn btn-outline">
+            Continue Shopping
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <div>&copy; <span class="current-year">2026</span> SportGear Inc. All rights reserved.</div>
+        <div class="payment-badges">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-cc-apple-pay"></i>
+          <i class="fa-brands fa-google-pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    let activePaymentType = 'card';
+    let currentUserSavedAddresses = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const items = Cart.getDetailedCartItems();
+      if (items.length === 0) {
+        document.getElementById('checkout-main-view').innerHTML = `
+          <div class="empty-products-state" style="padding: 5rem 1.5rem;">
+            <h2>No Items to Checkout</h2>
+            <p>Your shopping cart is currently empty. Add products before checking out.</p>
+            <a href="products.html" class="btn btn-primary">Browse Sports Gear</a>
+          </div>
+        `;
+        return;
+      }
+
+      renderCheckoutSummary();
+      loadUserSavedAddresses();
+    });
+
+    function loadUserSavedAddresses() {
+      const user = Auth.getCurrentUser();
+      if (!user) return;
+
+      // Pre-fill user contact info
+      document.getElementById('ship-name').value = user.name || '';
+      document.getElementById('ship-phone').value = user.phone || '';
+      document.getElementById('ship-email').value = user.email || '';
+
+      if (user.addresses && user.addresses.length > 0) {
+        currentUserSavedAddresses = user.addresses;
+        const selectorBox = document.getElementById('saved-address-selector-box');
+        const dropdown = document.getElementById('saved-address-dropdown');
+
+        dropdown.innerHTML = '<option value="">-- Choose from your saved addresses --</option>' +
+          user.addresses.map((addr, idx) => `
+            <option value="${addr.id}">${addr.street}, ${addr.city} (${addr.name})</option>
+          `).join('');
+
+        selectorBox.style.display = 'block';
+
+        // Pre-fill default address
+        const def = user.addresses.find(a => a.isDefault) || user.addresses[0];
+        if (def) {
+          dropdown.value = def.id;
+          fillSavedAddress(def.id);
+        }
+      }
+    }
+
+    function fillSavedAddress(addressId) {
+      if (!addressId) return;
+      const addr = currentUserSavedAddresses.find(a => a.id === addressId);
+      if (!addr) return;
+
+      if (addr.name) document.getElementById('ship-name').value = addr.name;
+      if (addr.phone) document.getElementById('ship-phone').value = addr.phone;
+      if (addr.street) document.getElementById('ship-street').value = addr.street;
+      if (addr.city) document.getElementById('ship-city').value = addr.city;
+      if (addr.state) document.getElementById('ship-state').value = addr.state;
+      if (addr.zip) document.getElementById('ship-zip').value = addr.zip;
+    }
+
+    function selectPaymentMethod(type, cardEl) {
+      activePaymentType = type;
+      document.querySelectorAll('.payment-option-card').forEach(c => c.classList.remove('selected'));
+      cardEl.classList.add('selected');
+
+      document.getElementById('payment-fields-card').style.display = type === 'card' ? 'block' : 'none';
+      document.getElementById('payment-fields-upi').style.display = type === 'upi' ? 'block' : 'none';
+      document.getElementById('payment-fields-netbanking').style.display = type === 'netbanking' ? 'block' : 'none';
+      document.getElementById('payment-fields-cod').style.display = type === 'cod' ? 'block' : 'none';
+    }
+
+    function renderCheckoutSummary() {
+      const items = Cart.getDetailedCartItems();
+      const totals = Cart.getTotals();
+
+      document.getElementById('checkout-item-count').textContent = Cart.getItemCount();
+
+      const itemsList = document.getElementById('checkout-items-list');
+      itemsList.innerHTML = items.map(item => `
+        <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.85rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--color-border);">
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <img src="${item.product.images[0]}" alt="${item.product.name}" style="width: 42px; height: 42px; object-fit: cover; border-radius: var(--radius-sm);" />
+            <div>
+              <strong style="display: block; font-family: var(--font-display);">${item.product.name}</strong>
+              <span style="color: var(--color-text-muted);">Qty: ${item.quantity} • ${item.size}</span>
+            </div>
+          </div>
+          <span style="font-weight: 600;">$${item.lineTotal.toFixed(2)}</span>
+        </div>
+      `).join('');
+
+      document.getElementById('co-subtotal').textContent = `$${totals.subtotal.toFixed(2)}`;
+      
+      const discRow = document.getElementById('co-discount-row');
+      if (totals.discountAmount > 0) {
+        discRow.style.display = 'flex';
+        document.getElementById('co-discount').textContent = `-$${totals.discountAmount.toFixed(2)}`;
+      } else {
+        discRow.style.display = 'none';
+      }
+
+      document.getElementById('co-shipping').innerHTML = totals.shipping === 0 
+        ? '<strong class="text-success">FREE</strong>' 
+        : `$${totals.shipping.toFixed(2)}`;
+
+      document.getElementById('co-tax').textContent = `$${totals.tax.toFixed(2)}`;
+      document.getElementById('co-total').textContent = `$${totals.total.toFixed(2)}`;
+    }
+
+    function handlePlaceOrder() {
+      const name = document.getElementById('ship-name').value.trim();
+      const phone = document.getElementById('ship-phone').value.trim();
+      const email = document.getElementById('ship-email').value.trim();
+      const street = document.getElementById('ship-street').value.trim();
+      const city = document.getElementById('ship-city').value.trim();
+      const state = document.getElementById('ship-state').value.trim();
+      const zip = document.getElementById('ship-zip').value.trim();
+
+      if (!name || !phone || !email || !street || !city || !state || !zip) {
+        if (window.showToast) window.showToast('Please fill out all required shipping fields', 'warning');
+        return;
+      }
+
+      // Simulated Payment Validation
+      let paymentLabel = 'Credit Card (ending 4242)';
+      if (activePaymentType === 'card') {
+        const cardNum = document.getElementById('pay-card-num').value.replace(/\s+/g, '');
+        if (cardNum.length < 12) {
+          if (window.showToast) window.showToast('Please enter a valid card number', 'warning');
+          return;
+        }
+        paymentLabel = `Credit Card (ending ${cardNum.slice(-4) || '4242'})`;
+      } else if (activePaymentType === 'upi') {
+        const upi = document.getElementById('pay-upi-id').value.trim();
+        paymentLabel = upi ? `UPI (${upi})` : 'UPI Payment';
+      } else if (activePaymentType === 'netbanking') {
+        const bank = document.getElementById('pay-bank-select').value;
+        paymentLabel = `Net Banking (${bank.toUpperCase()})`;
+      } else if (activePaymentType === 'cod') {
+        paymentLabel = 'Cash on Delivery';
+      }
+
+      // Simulate loading button
+      const placeBtn = document.getElementById('place-order-btn');
+      placeBtn.disabled = true;
+      placeBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Processing Secure Payment...';
+
+      setTimeout(() => {
+        const totals = Cart.getTotals();
+        const items = Cart.getDetailedCartItems().map(item => ({
+          productId: item.productId,
+          name: item.product.name,
+          size: item.size,
+          quantity: item.quantity,
+          price: item.product.price,
+          image: item.product.images[0]
+        }));
+
+        const newOrder = Auth.createOrder({
+          shippingAddress: {
+            name: name,
+            phone: phone,
+            email: email,
+            street: street,
+            city: city,
+            state: state,
+            zip: zip
+          },
+          paymentMethod: paymentLabel,
+          items: items,
+          subtotal: totals.subtotal,
+          discount: totals.discountAmount,
+          shipping: totals.shipping,
+          tax: totals.tax,
+          total: totals.total
+        });
+
+        // Clear cart
+        Cart.clearCart();
+
+        // Switch to Confirmation Screen
+        document.getElementById('checkout-main-view').style.display = 'none';
+        document.getElementById('confirmed-order-id').textContent = newOrder.orderId;
+        document.getElementById('confirmation-view').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (window.showToast) {
+          window.showToast(`Order ${newOrder.orderId} successfully placed!`, 'success');
+        }
+      }, 1200);
+    }
+  </script>
+</body>
+</html>

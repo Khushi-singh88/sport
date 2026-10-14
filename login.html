@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In / Register | SportGear</title>
+  <meta name="description" content="Sign in to your SportGear account to track orders, manage your wishlist, and enjoy express checkout." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="header-topbar">
+    <div class="container topbar-content">
+      <div class="topbar-announcement">
+        <i class="fa-solid fa-trophy text-accent"></i>
+        <span>Join the SportGear Athlete Club for member discounts & trackable orders</span>
+      </div>
+      <div class="topbar-links">
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Support</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main">
+        <div class="header-main-content">
+          <button class="mobile-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <a href="index.html" class="brand-logo">
+            <i class="fa-solid fa-trophy"></i>
+            <span>SPORT<span>GEAR</span></span>
+          </a>
+
+          <div class="header-search">
+            <form id="header-search-form" class="search-input-wrap">
+              <input type="text" id="header-search-input" placeholder="Search gear..." autocomplete="off" />
+              <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+
+          <div class="header-actions">
+            <a href="cart.html" class="header-action-btn" title="Shopping Cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span>Cart</span>
+              <span class="action-count-badge cart-count-badge" style="display: none;">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="header-categories-nav">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="products.html?category=Footwear">Footwear</a></li>
+          <li class="nav-item"><a href="products.html?category=Apparel">Apparel</a></li>
+          <li class="nav-item"><a href="products.html?category=Gym%20Equipment">Gym Equipment</a></li>
+          <li class="nav-item"><a href="products.html?category=Team%20Sports">Team Sports</a></li>
+          <li class="nav-item"><a href="products.html?category=Accessories">Accessories</a></li>
+          <li class="nav-item sale-highlight"><a href="products.html?deal=sale"><i class="fa-solid fa-fire text-accent"></i> Deals & Offers</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <i class="fa-solid fa-trophy"></i>
+        <span>SPORT<span>GEAR</span></span>
+      </div>
+      <button class="mobile-drawer-close" id="mobile-nav-close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html"><i class="fa-solid fa-house text-primary"></i> Home</a></li>
+        <li><a href="products.html"><i class="fa-solid fa-list-check text-primary"></i> Products</a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping text-accent"></i> Cart</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <div class="breadcrumb-list">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span class="current">Sign In / Register</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="auth-wrapper">
+      <!-- Tabs (PRD 6.7) -->
+      <div class="auth-tabs">
+        <button type="button" class="auth-tab-btn active" id="tab-btn-login" onclick="toggleAuthTab('login')">
+          <i class="fa-solid fa-right-to-bracket"></i> Sign In
+        </button>
+        <button type="button" class="auth-tab-btn" id="tab-btn-register" onclick="toggleAuthTab('register')">
+          <i class="fa-solid fa-user-plus"></i> Create Account
+        </button>
+      </div>
+
+      <div class="auth-body">
+        
+        <!-- Quick Demo Credentials Box -->
+        <div class="demo-login-box">
+          <div style="font-weight: 700; color: var(--color-primary); margin-bottom: 0.35rem;">
+            <i class="fa-solid fa-key"></i> Quick Demo Testing Account:
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <span>Email: <strong>alex@sportgear.com</strong></span><br />
+              <span>Pass: <strong>password123</strong></span>
+            </div>
+            <button type="button" class="btn btn-sm btn-outline-primary" onclick="fillDemoCredentials()">
+              Auto-Fill
+            </button>
+          </div>
+        </div>
+
+        <!-- Login Form (PRD 6.7) -->
+        <form id="login-form">
+          <div class="form-group">
+            <label for="login-email">Email Address</label>
+            <input type="email" id="login-email" class="form-control" placeholder="athlete@sportgear.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="login-password">Password</label>
+            <input type="password" id="login-password" class="form-control" placeholder="••••••••" required />
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; font-size: 0.85rem;">
+            <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+              <input type="checkbox" id="remember-me" checked style="accent-color: var(--color-primary);" /> Remember me
+            </label>
+            <a href="javascript:void(0)" onclick="openForgotPassword()" style="color: var(--color-primary); font-weight: 600;">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block btn-lg" id="login-submit-btn">
+            Sign In to Account
+          </button>
+        </form>
+
+        <!-- Register Form (PRD 6.7) -->
+        <form id="register-form" style="display: none;">
+          <div class="form-group">
+            <label for="reg-name">Full Athlete Name *</label>
+            <input type="text" id="reg-name" class="form-control" placeholder="Marcus Johnson" required />
+          </div>
+
+          <div class="form-group">
+            <label for="reg-email">Email Address *</label>
+            <input type="email" id="reg-email" class="form-control" placeholder="marcus@example.com" required />
+          </div>
+
+          <div class="form-group">
+            <label for="reg-password">Create Password (min 6 chars) *</label>
+            <input type="password" id="reg-password" class="form-control" placeholder="••••••••" minlength="6" required />
+          </div>
+
+          <div class="form-group">
+            <label for="reg-confirm-password">Confirm Password *</label>
+            <input type="password" id="reg-confirm-password" class="form-control" placeholder="••••••••" minlength="6" required />
+          </div>
+
+          <div style="margin-bottom: 1.5rem; font-size: 0.85rem;">
+            <label style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer;">
+              <input type="checkbox" id="reg-terms" required style="accent-color: var(--color-primary);" /> 
+              I agree to the Terms of Service & Privacy Policy
+            </label>
+          </div>
+
+          <button type="submit" class="btn btn-accent btn-block btn-lg" id="register-submit-btn">
+            Create Free Account
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- Forgot Password Modal -->
+  <div id="forgot-modal" class="mobile-overlay" style="display: none; align-items: center; justify-content: center; z-index: 300;">
+    <div style="background-color: #ffffff; border-radius: var(--radius-md); max-width: 440px; width: 90%; padding: 2rem; box-shadow: var(--shadow-xl); position: relative;">
+      <button onclick="closeForgotPassword()" style="position: absolute; top: 1.25rem; right: 1.25rem; background: none; border: none; font-size: 1.25rem; cursor: pointer;">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <h3 style="margin-bottom: 0.75rem;">Reset Your Password</h3>
+      <p style="font-size: 0.875rem; color: var(--color-text-muted); margin-bottom: 1.25rem;">
+        Enter your registered email and we will send simulated reset instructions.
+      </p>
+      <form onsubmit="handleForgotSubmit(event)">
+        <div class="form-group">
+          <label for="forgot-email">Account Email</label>
+          <input type="email" id="forgot-email" class="form-control" placeholder="alex@sportgear.com" required />
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send Reset Link</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <div>&copy; <span class="current-year">2026</span> SportGear Inc. All rights reserved.</div>
+        <div class="payment-badges">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-cc-apple-pay"></i>
+          <i class="fa-brands fa-google-pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    function toggleAuthTab(tab) {
+      const loginTabBtn = document.getElementById('tab-btn-login');
+      const regTabBtn = document.getElementById('tab-btn-register');
+      const loginForm = document.getElementById('login-form');
+      const regForm = document.getElementById('register-form');
+
+      if (tab === 'login') {
+        loginTabBtn.classList.add('active');
+        regTabBtn.classList.remove('active');
+        loginForm.style.display = 'block';
+        regForm.style.display = 'none';
+      } else {
+        loginTabBtn.classList.remove('active');
+        regTabBtn.classList.add('active');
+        loginForm.style.display = 'none';
+        regForm.style.display = 'block';
+      }
+    }
+
+    function fillDemoCredentials() {
+      document.getElementById('login-email').value = 'alex@sportgear.com';
+      document.getElementById('login-password').value = 'password123';
+      if (window.showToast) window.showToast('Demo credentials auto-filled! Click "Sign In".', 'info');
+    }
+
+    function getRedirectUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('redirect') || 'account.html';
+    }
+
+    // Login Submission
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value;
+      const pass = document.getElementById('login-password').value;
+      const remember = document.getElementById('remember-me').checked;
+
+      const res = Auth.login(email, pass, remember);
+      if (res.success) {
+        if (window.showToast) window.showToast(`Welcome back, ${res.user.name}!`, 'success');
+        setTimeout(() => {
+          window.location.href = getRedirectUrl();
+        }, 600);
+      } else {
+        if (window.showToast) window.showToast(res.message, 'error');
+      }
+    });
+
+    // Register Submission
+    document.getElementById('register-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('reg-name').value;
+      const email = document.getElementById('reg-email').value;
+      const pass = document.getElementById('reg-password').value;
+      const confirmPass = document.getElementById('reg-confirm-password').value;
+
+      if (pass !== confirmPass) {
+        if (window.showToast) window.showToast('Passwords do not match. Please re-enter.', 'warning');
+        return;
+      }
+
+      const res = Auth.register(name, email, pass);
+      if (res.success) {
+        if (window.showToast) window.showToast(`Account created! Welcome to SportGear, ${name}!`, 'success');
+        setTimeout(() => {
+          window.location.href = getRedirectUrl();
+        }, 600);
+      } else {
+        if (window.showToast) window.showToast(res.message, 'error');
+      }
+    });
+
+    // Forgot Password
+    function openForgotPassword() {
+      document.getElementById('forgot-modal').style.display = 'flex';
+    }
+
+    function closeForgotPassword() {
+      document.getElementById('forgot-modal').style.display = 'none';
+    }
+
+    function handleForgotSubmit(e) {
+      e.preventDefault();
+      closeForgotPassword();
+      if (window.showToast) {
+        window.showToast('Password recovery instructions sent! Check your inbox.', 'success');
+      }
+    }
+  </script>
+</body>
+</html>

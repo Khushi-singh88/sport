@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us & Support | SportGear</title>
+  <meta name="description" content="Reach the SportGear support team for sizing guidance, order tracking assistance, wholesale inquiries, or store locations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="header-topbar">
+    <div class="container topbar-content">
+      <div class="topbar-announcement">
+        <i class="fa-solid fa-headset text-accent"></i>
+        <span>ATHLETE SUPPORT: Monday - Saturday 8:00 AM - 8:00 PM EST</span>
+      </div>
+      <div class="topbar-links">
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Store Locator</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <div class="header-main">
+        <div class="header-main-content">
+          <button class="mobile-toggle-btn" id="mobile-menu-toggle" aria-label="Toggle Navigation Menu">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+
+          <a href="index.html" class="brand-logo">
+            <i class="fa-solid fa-trophy"></i>
+            <span>SPORT<span>GEAR</span></span>
+          </a>
+
+          <div class="header-search">
+            <form id="header-search-form" class="search-input-wrap">
+              <input type="text" id="header-search-input" placeholder="Search gear..." autocomplete="off" />
+              <button type="submit" aria-label="Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+          </div>
+
+          <div class="header-actions">
+            <a href="account.html" class="header-action-btn header-account-link" id="header-user-btn" title="My Account">
+              <i class="fa-regular fa-user"></i>
+              <span class="header-user-name">Account</span>
+            </a>
+            <a href="account.html?tab=wishlist" class="header-action-btn" title="My Wishlist">
+              <i class="fa-regular fa-heart"></i>
+              <span>Wishlist</span>
+              <span class="action-count-badge wishlist-count-badge" style="display: none;">0</span>
+            </a>
+            <a href="cart.html" class="header-action-btn" title="Shopping Cart">
+              <i class="fa-solid fa-cart-shopping"></i>
+              <span>Cart</span>
+              <span class="action-count-badge cart-count-badge" style="display: none;">0</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <nav class="header-categories-nav">
+      <div class="container">
+        <ul class="nav-links-list">
+          <li class="nav-item"><a href="index.html">Home</a></li>
+          <li class="nav-item"><a href="products.html?category=Footwear">Footwear</a></li>
+          <li class="nav-item"><a href="products.html?category=Apparel">Apparel</a></li>
+          <li class="nav-item"><a href="products.html?category=Gym%20Equipment">Gym Equipment</a></li>
+          <li class="nav-item"><a href="products.html?category=Team%20Sports">Team Sports</a></li>
+          <li class="nav-item"><a href="products.html?category=Accessories">Accessories</a></li>
+          <li class="nav-item sale-highlight"><a href="products.html?deal=sale"><i class="fa-solid fa-fire text-accent"></i> Deals & Offers</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
+  <aside class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="mobile-drawer-header">
+      <div class="brand-logo">
+        <i class="fa-solid fa-trophy"></i>
+        <span>SPORT<span>GEAR</span></span>
+      </div>
+      <button class="mobile-drawer-close" id="mobile-nav-close"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="mobile-drawer-body">
+      <ul class="mobile-nav-links">
+        <li><a href="index.html"><i class="fa-solid fa-house text-primary"></i> Home</a></li>
+        <li><a href="products.html"><i class="fa-solid fa-list-check text-primary"></i> Products</a></li>
+        <li><a href="cart.html"><i class="fa-solid fa-cart-shopping text-accent"></i> Cart</a></li>
+        <li><a href="account.html"><i class="fa-solid fa-user text-primary"></i> Account</a></li>
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Breadcrumbs -->
+  <div class="breadcrumbs-bar">
+    <div class="container">
+      <div class="breadcrumb-list">
+        <a href="index.html">Home</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span class="current">Contact Us</span>
+      </div>
+    </div>
+  </div>
+
+  <main class="container">
+    <div style="margin-bottom: 2.5rem; text-align: center;">
+      <h1 style="font-size: 2.6rem; margin-bottom: 0.5rem;">Get in Touch With SportGear</h1>
+      <p style="max-width: 600px; margin: 0 auto;">
+        Have a question regarding sizes, orders, gear recommendations, or wholesale bulk club orders? We're here to help you perform.
+      </p>
+    </div>
+
+    <!-- Contact Split Layout (PRD 6.9) -->
+    <div class="contact-layout">
+      <!-- Left: Store Info Card -->
+      <aside class="contact-info-card">
+        <h3>Contact Information</h3>
+        <p style="color: #d1fae5; font-size: 0.95rem; margin-bottom: 2rem;">
+          Visit our flagship equipment showroom or get direct assistance from our certified sports gear advisors.
+        </p>
+
+        <div class="contact-details-list">
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <div>
+              <strong style="display: block; font-size: 1rem; margin-bottom: 0.2rem;">Headquarters & Showroom:</strong>
+              <span style="font-size: 0.9rem; color: #f1f5f9; line-height: 1.5; display: block;">
+                742 Evergreen Athletic Plaza, Suite 400<br />
+                Eugene, OR 97401, United States
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <div>
+              <strong style="display: block; font-size: 1rem; margin-bottom: 0.2rem;">Phone & WhatsApp:</strong>
+              <span style="font-size: 0.9rem; color: #f1f5f9; display: block;">
+                +1 (800) 555-SPORT (7767)<br />
+                Direct: +1 (555) 234-8890
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <div>
+              <strong style="display: block; font-size: 1rem; margin-bottom: 0.2rem;">Email Support:</strong>
+              <span style="font-size: 0.9rem; color: #f1f5f9; display: block;">
+                support@sportgear.com<br />
+                orders@sportgear.com
+              </span>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <i class="fa-solid fa-clock"></i>
+            <div>
+              <strong style="display: block; font-size: 1rem; margin-bottom: 0.2rem;">Business Hours:</strong>
+              <span style="font-size: 0.9rem; color: #f1f5f9; display: block;">
+                Mon – Fri: 8:00 AM – 8:00 PM EST<br />
+                Saturday: 9:00 AM – 5:00 PM EST<br />
+                Sunday: Closed for training
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255, 255, 255, 0.2);">
+          <h4 style="color: #ffffff; font-size: 1rem; margin-bottom: 0.75rem;">Follow Our Athletes Online</h4>
+          <div class="footer-socials">
+            <a href="#" style="background-color: rgba(255, 255, 255, 0.15);" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#" style="background-color: rgba(255, 255, 255, 0.15);" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" style="background-color: rgba(255, 255, 255, 0.15);" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" style="background-color: rgba(255, 255, 255, 0.15);" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right: Contact Form -->
+      <section class="contact-form-card">
+        <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Send Us a Message</h2>
+        <p style="font-size: 0.95rem; margin-bottom: 2rem;">
+          Fill out the form below and an athlete specialist will respond within 4 business hours.
+        </p>
+
+        <form id="contact-form">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="contact-name">Your Full Name *</label>
+              <input type="text" id="contact-name" class="form-control" placeholder="Alex Johnson" required />
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email Address *</label>
+              <input type="email" id="contact-email" class="form-control" placeholder="alex@sportgear.com" required />
+            </div>
+          </div>
+
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="contact-phone">Phone Number (optional)</label>
+              <input type="tel" id="contact-phone" class="form-control" placeholder="+1 (555) 000-0000" />
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Topic / Subject *</label>
+              <select id="contact-subject" class="form-control" required>
+                <option value="">-- Choose Subject --</option>
+                <option value="order-status">Order Status & Tracking</option>
+                <option value="size-inquiry">Footwear & Apparel Sizing Advice</option>
+                <option value="product-inquiry">Equipment Specs & Warranty</option>
+                <option value="returns">Exchange & 30-Day Returns</option>
+                <option value="bulk-team">Team / Club Wholesale Orders</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-message">Your Message *</label>
+            <textarea id="contact-message" class="form-control" rows="5" placeholder="How can our sports team help you today?" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-accent btn-lg" id="contact-submit-btn">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+
+        <div id="contact-success-box" style="display: none; background-color: #d1fae5; border: 1px solid #86efac; border-radius: var(--radius-sm); padding: 1.5rem; margin-top: 1.5rem; text-align: center;">
+          <i class="fa-solid fa-circle-check" style="font-size: 2.2rem; color: var(--color-success); margin-bottom: 0.5rem; display: block;"></i>
+          <h3 style="color: #065f46; font-size: 1.3rem; margin-bottom: 0.25rem;">Message Delivered Successfully!</h3>
+          <p style="color: #047857; margin-bottom: 0; font-size: 0.9rem;">
+            Thank you for reaching out. A ticket has been created and an athlete care rep will contact you shortly.
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <!-- Embedded Stylized Store Location Visual (PRD 6.9) -->
+    <section style="margin-bottom: 4rem;">
+      <h2 style="font-size: 1.8rem; margin-bottom: 1rem;">Flagship Store Location</h2>
+      <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; height: 350px; border: 1px solid var(--color-border); box-shadow: var(--shadow-md);">
+        <img src="https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1600&q=80" alt="Stadium & Sports Arena Location" style="width: 100%; height: 100%; object-fit: cover;" />
+        <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; background-color: rgba(15, 23, 42, 0.9); backdrop-filter: blur(6px); color: #ffffff; padding: 1.25rem 1.75rem; border-radius: var(--radius-sm); max-width: 420px; border-left: 4px solid var(--color-accent);">
+          <h4 style="color: #ffffff; font-size: 1.2rem; margin-bottom: 0.2rem;"><i class="fa-solid fa-location-crosshairs text-accent"></i> Eugene Athletic Center</h4>
+          <p style="font-size: 0.85rem; color: #cbd5e1; margin-bottom: 0.5rem;">742 Evergreen Athletic Plaza, Eugene, OR 97401</p>
+          <span style="font-size: 0.8rem; color: #86efac; font-weight: 600;"><i class="fa-solid fa-circle text-success" style="font-size: 0.5rem;"></i> Open today until 8:00 PM EST</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="margin-bottom: 5rem;">
+      <div class="section-header" style="justify-content: center; text-align: center;">
+        <div>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Quick answers to common athlete questions</p>
+        </div>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
+        <div style="background-color: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.5rem;">
+          <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-question text-primary"></i> How fast is shipping?</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 0;">Standard orders arrive within 2-4 business days. All orders over $75 qualify for complimentary fast express dispatch.</p>
+        </div>
+
+        <div style="background-color: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.5rem;">
+          <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-question text-primary"></i> What if my footwear or jersey doesn't fit?</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 0;">We offer a 30-day hassle-free size exchange policy. Keep tags attached and contact us to print an exchange return label.</p>
+        </div>
+
+        <div style="background-color: #ffffff; border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 1.5rem;">
+          <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fa-solid fa-circle-question text-primary"></i> Are your Nike, Adidas, Bowflex products authentic?</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 0;">100% authentic with factory warranties. We are an authorized distributor for all featured sporting brands.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <a href="index.html" class="brand-logo" style="margin-bottom: 0.85rem;">
+            <i class="fa-solid fa-trophy"></i>
+            <span>SPORT<span>GEAR</span></span>
+          </a>
+          <p class="footer-desc">
+            Empowering performance with championship equipment designed for endurance and speed.
+          </p>
+          <div class="footer-socials">
+            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Categories</h4>
+          <ul class="footer-links-list">
+            <li><a href="products.html?category=Footwear">Athletic Footwear</a></li>
+            <li><a href="products.html?category=Apparel">Training Apparel</a></li>
+            <li><a href="products.html?category=Gym%20Equipment">Home Gym Equipment</a></li>
+            <li><a href="products.html?category=Team%20Sports">Team Sports & Balls</a></li>
+            <li><a href="products.html?category=Accessories">Protective & Accessories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links-list">
+            <li><a href="account.html?tab=orders">Order History & Tracking</a></li>
+            <li><a href="cart.html">View Shopping Cart</a></li>
+            <li><a href="account.html?tab=wishlist">My Wishlist</a></li>
+            <li><a href="about.html">About SportGear</a></li>
+            <li><a href="contact.html">Contact Us & Support</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Newsletter</h4>
+          <p class="footer-desc">Join to unlock exclusive coupons and gear drops.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit" class="btn btn-accent btn-sm">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; <span class="current-year">2026</span> SportGear Inc. All rights reserved.</div>
+        <div class="payment-badges">
+          <i class="fa-brands fa-cc-visa"></i>
+          <i class="fa-brands fa-cc-mastercard"></i>
+          <i class="fa-brands fa-cc-apple-pay"></i>
+          <i class="fa-brands fa-google-pay"></i>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const subject = document.getElementById('contact-subject').value;
+      const message = document.getElementById('contact-message').value.trim();
+
+      if (!name || !email || !subject || !message) {
+        if (window.showToast) window.showToast('Please complete all required fields.', 'warning');
+        return;
+      }
+
+      // Store in localStorage
+      const inquiries = JSON.parse(localStorage.getItem('sportgear_inquiries') || '[]');
+      inquiries.push({
+        id: 'inq-' + Date.now(),
+        name,
+        email,
+        phone: document.getElementById('contact-phone').value.trim(),
+        subject,
+        message,
+        date: new Date().toISOString()
+      });
+      localStorage.setItem('sportgear_inquiries', JSON.stringify(inquiries));
+
+      document.getElementById('contact-form').style.display = 'none';
+      document.getElementById('contact-success-box').style.display = 'block';
+
+      if (window.showToast) {
+        window.showToast('Your message has been sent to our athlete care team!', 'success');
+      }
+    });
+  </script>
+</body>
+</html>
